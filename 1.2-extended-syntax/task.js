@@ -44,7 +44,7 @@ function getAverageMark(marks){
         marksSum += marks[i];
     }
 
-    return averageMark = marksSum / marks.length;
+    return marksSum / marks.length;
 }
 
 function calculateDrinkTask(){
@@ -55,14 +55,23 @@ function calculateDrinkTask(){
 }
 
 function askDrink(name,dateOfBirthday){
-    let today = new Date();
-    let year = today.getFullYear();
+    if(new Date().getFullYear() - dateOfBirthday.getFullYear() >= 18){
+            console.log(`Не желаете ли олд-фэшн, ${name}?`);
+            return (`Не желаете ли олд-фэшн, ${name}?`);
+        } else {
+            console.log(`Сожалею, ${name}, но я не могу вам продать алкоголь. Зато могу предложить вам замечательный клюквенный компот!`);
+            return (`Сожалею, ${name}, но я не могу вам продать алкоголь. Зато могу предложить вам замечательный клюквенный компот!`);
+        }    
 
-    if(year - dateOfBirthday.getFullYear() >= 18){
-        console.log(`Не желаете ли олд-фэшн, ${name}?`);
-        return (`Не желаете ли олд-фэшн, ${name}?`);
-    } else {
-        console.log(`Сожалею, ${name}, но я не могу вам продать алкоголь. Зато могу предложить вам замечательный клюквенный компот!`);
-        return (`Сожалею, ${name}, но я не могу вам продать алкоголь. Зато могу предложить вам замечательный клюквенный компот!`);
-    }    
+
+    // let today = new Date();
+    // let year = today.getFullYear();
+
+    // if(year - dateOfBirthday.getFullYear() >= 18){
+    //     console.log(`Не желаете ли олд-фэшн, ${name}?`);
+    //     return (`Не желаете ли олд-фэшн, ${name}?`);
+    // } else {
+    //     console.log(`Сожалею, ${name}, но я не могу вам продать алкоголь. Зато могу предложить вам замечательный клюквенный компот!`);
+    //     return (`Сожалею, ${name}, но я не могу вам продать алкоголь. Зато могу предложить вам замечательный клюквенный компот!`);
+    // }    
 }
