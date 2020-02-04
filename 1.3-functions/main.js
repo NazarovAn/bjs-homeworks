@@ -63,16 +63,19 @@ showSolutionsMessage(2, 4, 2);
 
 function getAverageScore(data) {
     let averageSum = 0,
-        average = 0;
+        averageOfSubjects = {};
 
-    for(let key in data) {        
-        console.log(`${key}: ${countAvrgArr(data[key])}`);
-
-        averageSum += countAvrgArr(data[key]);
-        average = averageSum / Object.keys(data).length;
+    for(let subjects in data) {
+        averageOfSubjects[subjects] = countAvrgArr(data[subjects]);
+        
+        averageSum += countAvrgArr(data[subjects]);
     }
     
-    console.log(`average: ${average}`);
+    averageOfSubjects.average = averageSum / Object.keys(data).length;
+
+    console.log(averageOfSubjects);
+
+    return averageOfSubjects
 }
 
 function countAvrgArr(array) {
