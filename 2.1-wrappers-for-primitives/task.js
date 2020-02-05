@@ -12,20 +12,20 @@ function calculateMortgage() {
 }
 
 function calculateTotalMortgage(percent, contribution, amount, date) {
+    percent = parseInt(percent);
+    contribution = parseInt(contribution);    
+    amount = parseInt(amount);
 
     if(isNaN(percent) === true){
-        console.log(`Параметр \"Процентная ставка" содержит неправильное значение ${percent}.`);
-        percent = parseInt(percent);
+        return `Параметр \"${window.percent.placeholder}" содержит неправильное значение ${window.percent.value}.`;
     }
 
     if(isNaN(contribution) === true){
-        console.log(`Параметр \"Начальный взнос" содержит неправильное значение ${contribution}.`);
-        contribution = parseInt(contribution);
+        return `Параметр \"${window.contribution.placeholder}" содержит неправильное значение ${window.contribution.value}.`;
     }
 
     if(isNaN(amount) === true){
-        console.log(`Параметр \"Общая стоимость" содержит неправильное значение ${amount}.`);
-        amount = parseInt(amount);
+        return `Параметр \"${window.amount.placeholder}" содержит неправильное значение ${window.amount.value}.`;
     }
     
     let returnSum = amount - contribution;
@@ -48,7 +48,6 @@ function calculateTotalMortgage(percent, contribution, amount, date) {
     }
 
     let monthlyPayment = returnSum * (monthlyPercent + monthlyPercent / (((1 + monthlyPercent) ** countMonths(date)) - 1));
-
     let totalAmount = monthlyPayment * countMonths(date);
 
     return totalAmount.toFixed(2)
@@ -62,11 +61,9 @@ function sayHello() {
 }
 
 function getGreeting(name) {
-    let greeting = `Привет, мир! Меня зовут ${name}.`;
-
     if(name === "" || name === null || name === undefined){
-        return "Привет, мир! Меня зовут Аноним."
+        name = 'Аноним';
     }
 
-    return greeting;
+    return `Привет, мир! Меня зовут ${name}.`
 }

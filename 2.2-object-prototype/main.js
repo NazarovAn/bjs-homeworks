@@ -1,3 +1,5 @@
+'use strict';
+
 function initCheckBirthday() {
     const birthday = document.getElementById('birthday').value;
 
@@ -12,13 +14,9 @@ function checkBirthday(birthday) {
     birthday = Date.parse(birthday);
 
     let diff = now - birthday,
-        age = diff / ((365 * 24 * 60 * 60 *1000 * 14 + 366 * 24 * 60 * 60 * 1000 * 4) / 18);
+        age = diff / (365.25 * 24 * 60 * 60 *1000);
 
-    if(age > 18){
-        return true;
-    } else {
-        return false;
-    }
+    return age > 18
 }
 
 function initPrintAnimalSound() {
@@ -32,15 +30,11 @@ function initPrintAnimalSound() {
 }
 
 function getAnimalSound(animal) {
-    let sound = {};
-
     if(animal === undefined){
         return null
-    } else {
-       sound = animal.sound;
     }
-
-    return sound;
+    
+    return animal.sound;
 }
 
 function initCalculateStatement() {
@@ -55,14 +49,10 @@ function initCalculateStatement() {
 
 function getAverageMark(marks) {
     let marksSum = 0;
-        roundedAverage = 0;
         
     for (let i = 0; i < marks.length; i++) {
-
-        marksSum += Number(marks[i]);
+        marksSum += parseInt(marks[i]);
     }
 
-    roundedAverage = Math.round(marksSum / marks.length);
-
-    return roundedAverage;
+    return Math.round(marksSum / marks.length);
 }
