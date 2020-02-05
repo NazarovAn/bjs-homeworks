@@ -56,3 +56,11 @@ function getAverageMark(marks) {
 
     return Math.round(marksSum / marks.length);
 }
+
+function initCheckBirthday() {
+    const birthday = document.getElementById('birthday').value;
+
+    const result = checkBirthday(birthday) ? "Да" : "Нет";
+
+    document.getElementById('disclaimer').innerHTML = result;
+}
