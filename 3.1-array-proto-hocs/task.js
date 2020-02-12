@@ -15,22 +15,25 @@ function sum(...args) {
 }
 
 function compareArrays(arr1, arr2){    
-    let counter = 0;
+    // let counter = 0;
 
     if(arr1.length != arr2.length){
         return false;
     }
     
-    function isEven(num){
-        if(num === arr2[counter]){
-            counter++;
-            return true;
-        }
+    // function isEven(num){
+    //     if(num === arr2[counter]){
+    //         counter++;
+    //         return true;
+    //     }
 
-        return false;
-    }
+    //     return false;
+    // }
 
-    return arr1.every(isEven);
+    // return arr1.every(isEven);
+    
+    //Более простой вариант
+    return arr1.every((element, index) => element == arr2[index]);
 }
 
 const mSum = memorize(sum, 5);
